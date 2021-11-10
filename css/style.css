@@ -1,0 +1,82 @@
+body {
+  background: #f3f3f3;
+}
+.container {
+  width: 100vw;
+}
+.header {
+  width: 100%;
+  height: 80px;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+}
+.logo img {
+  height: 62px;
+}
+
+.logo {
+  height: 62px;
+}
+
+.pessoas {
+  height: 50px;
+  width: 50px;
+  background-color: burlywood;
+}
+
+.footer {
+  width: 100%;
+  height: 80px;
+  background-color: #fff;
+  box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.footer input {
+  border: none;
+  font-size: 18px;
+  font-style: italic;
+}
+.button-send {
+  width: 30px;
+  height: 30px;
+  background-color: coral;
+}
+
+.status,
+.private,
+.normal {
+  width: 100vw;
+  padding: 10px;
+  margin-bottom: 4px;
+  box-sizing: border-box;
+  line-height: 20px;
+}
+
+.status {
+  background-color: #dcdcdc;
+}
+.private {
+  background-color: #ffdede;
+}
+.normal {
+  background-color: #fff;
+}
+.light {
+  color: #aaa;
+}
+.bold {
+  font-weight: bold;
+}

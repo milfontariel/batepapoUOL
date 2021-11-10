@@ -6,11 +6,49 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bate-Papo UOL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
+  <main class="container">
+
+    <header class="header">
+      <div class="logo"><img src="./assets/logo-UOL.jpg" alt="Logo UOL"></div>
+      <div class="pessoas"></div>
+    </header>
+
+    <div class="msg">
+      <ul>
+        <li class="status">
+          <span class="time">(9:13:20)</span> <span class="name-user bold">João</span> entra na sala...
+        </li>
+        <li class="normal">
+          <span class="time light">(9:14:15)</span> <span class="name-user bold">João</span> para <span class="bold">Todos</span>: Bom dia
+        </li>
+        <li class="normal">
+          <span class="time light">(9:14:15)</span> <span class="name-user bold">João</span> para <span class="bold">João</span>: Oi João :)
+        </li>
+        <li class="private">
+          <span class="time">(9:13:20)</span> <span class="name-user bold">Jorge</span> reservadamente para <span class="name-user bold">Maria</span>: Oi gatinha quer tc?
+        </li>
+        <li class="status">
+          <span class="time">(9:13:20)</span> <span class="name-user bold">Maria</span> sai da sala...
+        </li>
+      </ul>
+    </div>
+
+
+    <footer class="footer">
+      <input type="text" placeholder="Escreva aqui...">
+      <div class="button-send"></div>
+    </footer>
+
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="./js/script.js"></script>
 </body>
 
