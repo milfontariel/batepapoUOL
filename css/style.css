@@ -44,7 +44,6 @@ body {
 .people {
   height: 50px;
   width: 50px;
-  background-color: burlywood;
 }
 
 .show-people {
@@ -118,15 +117,22 @@ body {
 #submitbtn {
   display: none;
 }
+.all-icon, .user-icon, .lock, .unlock {
+  width: 30px;
+  height: 30px;
+}
 .button-send {
   width: 30px;
   height: 30px;
-  background-color: coral;
 }
 .check {
   width: 20px;
   height: 20px;
-  background-color: green;
+  color: green;
+  display: none;
+}
+.display {
+  display: block;
 }
 
 .status,
@@ -143,7 +149,7 @@ body {
 .status {
   background-color: #dcdcdc;
 }
-.private {
+.private_message {
   background-color: #ffdede;
 }
 .message {
