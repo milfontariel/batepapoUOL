@@ -4,6 +4,7 @@ let nome = {};
 let userRegistration;
 let message_to = "Todos";
 let visibility = "message";
+let visibilityInfo = "Público";
 let intervalUser;
 let intervalChat;
 function userReg(){
@@ -27,7 +28,7 @@ const all = `
   </li>
 `;
 //lendo o enter
-let input = document.querySelector(".footer input");
+let input = document.querySelector(".footer-group input");
 input.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) {
         event.preventDefault();
@@ -55,10 +56,11 @@ function loadPage(){
     axios.get("https://mock-api.driven.com.br/api/v4/uol/messages").then(pullMessages);
   }, 3000);
   userReg();
+  sendTo();
 }
 //enviando mensagem
 function sendMsg(){
-  let msg = document.querySelector(".footer input");
+  let msg = document.querySelector(".footer-group input");
   let mensagem = {
     from: username,
     to: message_to,
@@ -84,7 +86,7 @@ function pullMessages(resposta) {
       document.querySelector(".chat ul").innerHTML += `
       <li class="message" data-identifier="message">
       <span class="time light">(${resposta.data[i].time})</span> 
-      <span class="name-user bold">${resposta.data[i].from}</span> paraa <span class="name-user bold">${message_to}</span> ${resposta.data[i].text}
+      <span class="name-user bold">${resposta.data[i].from}</span> para <span class="name-user bold">${resposta.data[i].to}</span> ${resposta.data[i].text}
       </li>
       `;
     } else if(resposta.data[i].type === "private_message" && (resposta.data[i].from == username || resposta.data[i].to == username)){
@@ -92,14 +94,14 @@ function pullMessages(resposta) {
         document.querySelector(".chat ul").innerHTML += `
         <li class="message" data-identifier="message">
         <span class="time light">(${resposta.data[i].time})</span> 
-        <span class="name-user bold">${resposta.data[i].from}</span> para <span class="name-user bold">${message_to}</span> ${resposta.data[i].text}
+        <span class="name-user bold">${resposta.data[i].from}</span> para <span class="name-user bold">${"Todos"}</span> ${resposta.data[i].text}
         </li>
         `;
       } else {
         document.querySelector(".chat ul").innerHTML += `
         <li class="private_message" data-identifier="message">
         <span class="time light">(${resposta.data[i].time})</span> 
-        <span class="name-user bold">${resposta.data[i].from}</span> para <span class="name-user bold">${message_to}</span> ${resposta.data[i].text}
+        <span class="name-user bold">${resposta.data[i].from}</span> para <span class="name-user bold">${resposta.data[i].to}</span> ${resposta.data[i].text}
         </li>
         `;
       }
@@ -140,6 +142,7 @@ function messageTo(element){
     message_to = element.children[1].innerHTML;
     document.querySelector(".users ul li .check.display").classList.remove("display");
     element.parentNode.children[1].classList.add("display");
+    sendTo();
   }
 }
 function visibleTo(element){
@@ -147,10 +150,14 @@ function visibleTo(element){
     visibility = "message";
     element.parentNode.children[1].classList.add("display");
     document.querySelector(".lock").parentNode.parentNode.children[1].classList.remove("display");
+    visibilityInfo = "Público";
+    sendTo();
   } else if(message_to != "Todos") {
     visibility = "private_message";
     element.parentNode.children[1].classList.add("display");
     document.querySelector(".unlock").parentNode.parentNode.children[1].classList.remove("display");
+    visibilityInfo = "Reservadamente";
+    sendTo();
   }
 }
 function checkDisplay() {
@@ -159,5 +166,13 @@ function checkDisplay() {
     if(element[i].children[0].children[1].innerHTML == message_to){
       element[i].children[1].classList.add("display");
     }
+  }
+}
+function sendTo(){
+  if(message_to == "Todos"){
+    visibilityInfo = "Público";
+    document.querySelector(".footer p").innerHTML = `Enviando para ${message_to} (${visibilityInfo})`;
+  } else {
+    document.querySelector(".footer p").innerHTML = `Enviando para ${message_to} (${visibilityInfo})`;
   }
 }

@@ -25,7 +25,9 @@ body {
   align-items: center;
   padding: 0 20px;
   box-sizing: border-box;
-  margin-bottom: 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 .logo img {
   height: 62px;
@@ -35,11 +37,11 @@ body {
   height: 62px;
 }
 .chat {
-  height: calc(100vh - 185px);
   width: 100vw;
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  margin-bottom: 80px;
 }
 .people {
   height: 50px;
@@ -54,7 +56,11 @@ body {
   position: fixed;
   top: 0;
   right: -70vw;
+  overflow-y: scroll;
   z-index: 2;
+}
+.visibility-list {
+  margin-bottom: 40px;
 }
 .alpha {
   display: none;
@@ -93,25 +99,36 @@ body {
   background-color: #fff;
   box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  box-sizing: border-box;
-  position: absolute;
+  flex-direction: column;
+  
+  position: fixed;
   bottom: 0;
   left: 0;
 }
-.footer input {
+.footer p {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  margin-left: 20px;
+}
+.footer-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  box-sizing: border-box;
+}
+.footer-group input {
   overflow: hidden;
   width: 80%;
   height: 80%;
   border: 0;
   font-size: 18px;
 }
-.footer input:focus {
+.footer-group input:focus {
   outline: none;
 }
-.footer input::placeholder {
+.footer-group input::placeholder {
   font-style: italic;
 }
 #submitbtn {

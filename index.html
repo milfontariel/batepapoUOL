@@ -31,7 +31,7 @@
       <div class="visibility">
         <p class="bold">Escolha a visibilidade:</p>
       </div>
-      <ul>
+      <ul class="visibility-list">
         <li>
           <div data-identifier="visibility" class="flex" onclick="visibleTo(this)">
             <ion-icon class="unlock" name="lock-open"></ion-icon>
@@ -55,9 +55,12 @@
     </div>
 
     <footer class="footer">
-      <input type="text" placeholder="Escreva aqui...">
-      <input type="submit" id="submitbtn" onclick="sendMsg()">
-      <ion-icon data-identifier="send-message" class="button-send" name="paper-plane-outline" onclick="sendMsg()"></ion-icon>
+      <div class="footer-group">
+        <input type="text" placeholder="Escreva aqui...">
+        <input type="submit" id="submitbtn" onclick="sendMsg()">
+        <ion-icon data-identifier="send-message" class="button-send" name="paper-plane-outline" onclick="sendMsg()"></ion-icon>
+      </div>
+      <p class="light"></p>
     </footer>
 
   </main>
